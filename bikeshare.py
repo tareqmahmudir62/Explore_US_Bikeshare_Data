@@ -1,16 +1,9 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
 
 import pandas as pd
 import numpy as np
 import time
 import datetime
 
-
-# In[2]:
 
 
 dfc= pd.read_csv('chicago.csv')
@@ -19,36 +12,14 @@ dfw= pd.read_csv ('washington.csv')
 months= ['january','february','march','april','may','june','all',]
 days= ['sunday','monday','tuesday','wednesday','thursday','friday','all',]
     
-
-
-# #####  <font color='blue'> Three datasets at a glance </font>
-
-# In[3]:
-
-
 dfc.head(5)
-
-
-# In[4]:
-
-
 dfn.head(5)
-
-
-# In[5]:
-
-
 dfw.head(5)
-
-
-# #####  <font color='blue'> Creating 'get_filters' function to filter </font>
-
-# In[6]:
-
 
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
+
 
 def get_filters():
     """
@@ -60,7 +31,8 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     
-# TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+	
+# get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     print('Hello! Let\'s explore some US bikeshare data!')
     cities= ['chicago','new york city','washington']
     city= input("insert the name of the city: ").lower()
@@ -69,7 +41,7 @@ def get_filters():
         city= input("oops!there was a typo! please select either chicago, new york city or washington: ").lower()
 
 
-# TO DO: get user input for month (all, january, february, ... , june)
+# get user input for month (all, january, february, ... , june)
     months= ['january','february','march','april','may','june']
     month= input("insert the name of the month : ").lower()
 
@@ -77,7 +49,7 @@ def get_filters():
         month= input("oops!there was a typo! Please select any month from january to december: ").lower()
 
 
-# TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
+# get user input for day of week (all, monday, tuesday, ... sunday)
     days= ['sunday','monday','tuesday','wednesday','thursday','friday']
     day= input("insert the name of the day : ").lower()
 
@@ -86,11 +58,6 @@ def get_filters():
 
     print('-'*40)
     return city, month, day
-
-
-# #####  <font color='blue'> Creating 'load_data' function to load the data </font>
-
-# In[7]:
 
 
 def load_data(city, month, day):
@@ -121,18 +88,7 @@ def load_data(city, month, day):
         df= df[df['day']==day]
     return df
 
-
-# ##### <font color='blue'> Test (of 'load_data' function) </font>
-
-# In[8]:
-
-
 load_data('washington', 'january', 'monday').tail(5)
-
-
-# #####  <font color='blue'> Creating 'time_stats' function to find out the most popular month,day and hour </font>
-
-# In[9]:
 
 
 def time_stats(df):
@@ -158,11 +114,6 @@ def time_stats(df):
     print('-'*40)
 
 
-# #####  <font color='blue'> Creating 'station_stats' function to find out the most popular start,end and frequently used station </font>
-
-# In[10]:
-
-
 def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
 
@@ -185,10 +136,6 @@ def station_stats(df):
     print('-'*40)
 
 
-# #####  <font color='blue'> Creating 'trip_duration_stats' function to find out the total and mean travel time </font>
-
-# In[11]:
-
 
 def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
@@ -206,11 +153,6 @@ def trip_duration_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
     
-
-
-# #####  <font color='blue'> Creating 'user_stats' function to find out the count of users,gender and year of birth(earliest,recent,common) </font>
-
-# In[12]:
 
 
 def user_stats(df,city):
@@ -247,16 +189,6 @@ def user_stats(df,city):
             
         
 
-
-# In[ ]:
-
-
-
-
-
-# In[13]:
-
-
 def display_data(df):
     index=0
     user_input=input('would you like to display 5 rows of raw data? ').lower()
@@ -265,8 +197,6 @@ def display_data(df):
         index += 5
         user_input = input('would you like to display more 5 rows of raw data? ').lower()
 
-
-# In[14]:
 
 
 def main():
@@ -286,28 +216,5 @@ def main():
 
 if __name__ == "__main__":
 	main()
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
 
 
